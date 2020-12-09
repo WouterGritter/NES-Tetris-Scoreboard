@@ -48,6 +48,22 @@ public class TetrisScoreboard {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TetrisScoreboard that = (TetrisScoreboard) o;
+        return Arrays.equals(a_entries, that.a_entries) &&
+                Arrays.equals(b_entries, that.b_entries);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(a_entries);
+        result = 31 * result + Arrays.hashCode(b_entries);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "TetrisScoreboard{" +
                 "a_entries=" + Arrays.toString(a_entries) +
